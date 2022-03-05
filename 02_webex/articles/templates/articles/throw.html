@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Throw</h1>
+    {% comment %}
+    throw라는 이름의 input 태그는
+    catch/ 경로로
+    message 라는 키와 직접 입력한 value를 전송한다
+    {% endcomment %}
+    {% comment %}
+    catch/ => root/throw/catch
+    /catch/ => root/catch/
+    {% endcomment %}
+    <form action="/catch/">
+        <label for="throw">던진다</label>
+        <input type="text" id="throw" name="message">
+        <input type="submit">
+    </form>
+    <hr>
+    <h1>naver Search</h1>
+    <form action="https://search.naver.com/search.naver">
+        <label for="search">검색</label>
+        <input type="text" id="search" name="query">
+        <input type="submit">
+    </form>
+</body>
+</html>
