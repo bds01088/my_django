@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>INDEX PAGE</h1>
+  <!--views.create에서 post가 아니면 new.html을 불러오므로 new의 path는 필요없어짐-->
+  <a href="{% url 'articles:create' %}">CREATE</a>
+
+  {% for article in articles %}
+    <p>{{ article.pk }} 번째 글</p>
+    <p>제목 : 
+      <!-- article:detail은 <int:article_pk> 변수가 필요-->
+      <a href="{% url 'articles:detail' article.pk %}">{{ article.title }}</a>
+    </p>
+    {% comment %} <p>내용 : {{ article.content }}</p> {% endcomment %}
+    <p>작성 시간 : {{ article.created_at }}</p>
+    <hr>
+  {% endfor %}
+{% endblock content %}

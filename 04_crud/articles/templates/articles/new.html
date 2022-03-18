@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>NEW PAGE</h1>
+  <!--create가 new.html을 불러오는게 가능해져서
+  굳이 url을 부를 필요가 없이 상대경로로 자기자신을 불러오면 된다.-->
+  <form action="" method="POST">
+    {% csrf_token %}
+    <label for="title">제목 : </label>
+    <input type="text" id='title' name="title"> <br>
+
+    <label for="content">내용 : </label>
+    <textarea name="content" id="content" cols="30" rows="10"></textarea> <br>
+
+    <input type="submit">
+  </form>
+{% endblock content %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>INDEX PAGE</h1>
+    <a href="{% url 'articles:new' %}">CREATE</a>
+    {% for article in articles %}
+    {% comment  %}
+        <ul class="list-group list-group-horizontal">
+            <li class="list-group-item">{{article.pk}}</li>
+            <li class="list-group-item">{{article.title}}</li>
+            <li class="list-group-item">{{article.content}}</li>
+        </ul>
+        {% endcomment %}
+        <p>{{article.pk}}</p>
+        <p>{{article.title}}</p>
+        <p>{{article.content}}</p>
+        <p>{{article.created_at}}</p>
+        <hr>
+    {% endfor %}
+{% endblock content %}
+

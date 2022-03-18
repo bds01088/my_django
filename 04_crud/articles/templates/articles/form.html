@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+<!--create와 update의 골조 차이는 h1태그 말고는 차이가 없으므로 통합-->
+{% block content %}
+    {% if request.resolver_match.url_name == 'create' %}
+        <h1>CREATE PAGE</h1>
+    {% elif request.resolver_match.url_name == 'update' %}
+        <h1>UPDATE PAGE</h1>
+    {% endif %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label for="title">제목 : </label>
+        <input type="text" name="title" id="title" value="{{article.title}}"> <br>
+
+        <label for="content">내용 : </label>
+        <textarea name="content" id="content" cols="30" rows="10">
+            {{article.content}}
+        </textarea><br>
+
+        <input type="submit" value="UPDATE">
+{% endblock content %}
